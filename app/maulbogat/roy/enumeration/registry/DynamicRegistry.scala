@@ -16,10 +16,10 @@ trait DynamicRegistry[T, S] extends TypedRegistry[T] {
 
 trait NamedDynamicRegistry[T, S] extends DynamicRegistry[T, S] {
 
-  protected def nameRegistry: NamedRegistry[S]
-
   def findRegistered(name: String): Option[T] = nameRegistry
     .findRegistered(name)
     .map(fromName)
+
+  protected def nameRegistry: NamedRegistry[S]
 
 }
