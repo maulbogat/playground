@@ -1,7 +1,7 @@
 package maulbogat.roy.action
 
 import maulbogat.roy.action.ActionEnumExample.Action.Action
-import maulbogat.roy.enumeration.{NamedEnumeration, NamedValue}
+import maulbogat.roy.enumeration.{InnerTypeEnumeration, NamedEnumeration, NamedValue}
 
 object ActionEnumExample {
 
@@ -27,9 +27,10 @@ object ActionEnumExample {
     }
   }
 
-  object Action extends NamedEnumeration {
+  object Action extends NamedEnumeration with InnerTypeEnumeration {
 
     override protected type EnumVal = Action
+
     val Eat = Action("eat")
     val Pray = Action("pray")
     val Love = Action("love")

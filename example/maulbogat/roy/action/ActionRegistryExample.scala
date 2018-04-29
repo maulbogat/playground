@@ -1,6 +1,7 @@
 package maulbogat.roy.action
 
 import maulbogat.roy.action.ActionRegistryExample.ActionRegistry
+import maulbogat.roy.enumeration.InnerTypeEnumeration
 import maulbogat.roy.enumeration.registry.{NamedRegistry, Registered, Registration}
 
 object ActionRegistryExample {
@@ -40,7 +41,7 @@ object ActionRegistryExample {
     override val register: Register = () => ActionRegistry.love
   }
 
-  object ActionRegistry extends NamedRegistry[Action] {
+  object ActionRegistry extends NamedRegistry[Action] with InnerTypeEnumeration {
     val eat: Registration[Action] = register("eat", Eat)
     val pray: Registration[Action] = register("pray", Pray)
     val love: Registration[Action] = register("love", Love)

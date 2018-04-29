@@ -1,6 +1,6 @@
 package maulbogat.roy.enumeration.registry
 
-import maulbogat.roy.enumeration.TypedEnumeration
+import maulbogat.roy.enumeration.{InnerTypeEnumeration, TypedEnumeration}
 
 import scala.reflect.ClassTag
 
@@ -14,11 +14,11 @@ trait Registration[T] {
   def element: T
 }
 
-trait Registry[T] extends TypedEnumeration {
+trait Registry[T] extends TypedEnumeration with InnerTypeEnumeration {
 
   override protected type EnumVal <: RegisterVal
 
-  def getByType[S <: T : ClassTag]: List[S] = getAllRegistered.collect { case s: S => s }
+  def getRegisteredByType[S <: T : ClassTag]: List[S] = getAllRegistered.collect { case s: S => s }
 
   def getAllRegistered: List[T] = getAll.map(_.element)
 

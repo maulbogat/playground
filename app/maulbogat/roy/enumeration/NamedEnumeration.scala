@@ -6,7 +6,7 @@ trait NamedValue {
 
 trait NamedEnumeration extends TypedEnumeration {
 
-  override protected type EnumVal <: Val with NamedValue
+  override protected type EnumVal <: NamedValue
 
   def find(name: Option[String]): Option[EnumVal] = name.flatMap(find)
 
