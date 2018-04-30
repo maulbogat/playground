@@ -1,6 +1,6 @@
-package maulbogat.roy.event
+package maulbogat.roy.registry.event
 
-import maulbogat.roy.{NamedValue, Registered}
+import maulbogat.roy.registry.{NamedValue, Registered}
 
 sealed trait Event extends Registered[Event] with NamedValue
 

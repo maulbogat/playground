@@ -1,6 +1,6 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
-trait ObligatedRegistry extends WrappedEnumRegistry {
+trait CompelledRegistry extends WrappedEnumRegistry {
   _: Enumeration =>
 
   protected def register(element: V): Register[V] = ValWrapper(element)

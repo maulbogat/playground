@@ -1,8 +1,8 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
 import scala.reflect.ClassTag
 
-trait ByType {
+trait ByTypeRegistry {
   _: Registry =>
 
   def getByType[T <: V : ClassTag]: List[T] = getAllValues.collect { case t: T => t }

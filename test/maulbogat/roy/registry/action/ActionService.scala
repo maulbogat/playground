@@ -1,4 +1,4 @@
-package maulbogat.roy.action
+package maulbogat.roy.registry.action
 
 abstract class ActionService() {
   def eat(): Unit

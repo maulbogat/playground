@@ -1,4 +1,4 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
 trait WrappedEnumRegistry extends EnumRegistry {
   _: Enumeration =>

@@ -1,6 +1,6 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
-trait Identity {
+trait IdentityRegistry {
   _: Registry =>
 
   override protected type Key = V

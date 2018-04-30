@@ -1,10 +1,10 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
 trait Registry {
 
-  protected type V
-
   protected type Key
+
+  protected type V
 
   def getAllValues: List[V] = getAllKeys.map(keyToValue)
 

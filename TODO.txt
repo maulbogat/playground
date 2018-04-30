@@ -5,3 +5,4 @@
 5. View Configuration
 6. View Type
 7. Actor
+8. Translation

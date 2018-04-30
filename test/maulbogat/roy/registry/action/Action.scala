@@ -1,6 +1,7 @@
-package maulbogat.roy.action
+package maulbogat.roy.registry.action
 
 import maulbogat.roy._
+import maulbogat.roy.registry._
 
 sealed trait Action extends Registered[Action] with NamedValue
 
@@ -23,7 +24,7 @@ case object Love extends Action {
 }
 
 object ActionRegistry extends Enumeration
-  with ObligatedRegistry
+  with CompelledRegistry
   with NamedRegistry
   with GenericRegistry[Action] {
 

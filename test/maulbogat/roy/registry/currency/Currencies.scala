@@ -1,16 +1,19 @@
-package maulbogat.roy.currency
+package maulbogat.roy.registry.currency
 
-import maulbogat.roy._
+import maulbogat.roy.registry._
 
 object Currencies extends Enumeration
   with EnumRegistry
-  with DefaultError
+  with RegistryDefaultError
   with NamedRegistry
-  with Identity {
+  with IdentityRegistry {
 
   override protected type V = Currency
+
   val GBP = Currency("GBP", "£")
+
   val USD = Currency("USD", "$")
+
   val EUR = Currency("EUR", "€")
 
   override protected def error(name: String) = new IllegalArgumentException(s"invalid currency: $name")

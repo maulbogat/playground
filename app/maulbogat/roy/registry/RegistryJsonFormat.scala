@@ -1,21 +1,21 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
 import play.api.libs.json._
 
 import scala.util.{Failure, Success, Try}
 
-trait JsonFormat extends JsonReads {
-  _: NamedRegistry with Default =>
+trait RegistryJsonFormat extends RegistryJsonReads {
+  _: NamedRegistry with RegistryDefault =>
 
-  val namedFormat: Format[V] = Format.apply(namedReads, JsonWrites.namedWrites[V])
+  val namedFormat: Format[V] = Format.apply(namedReads, RegistryJsonWrites.namedWrites[V])
 
 }
 
-trait JsonReads {
-  _: NamedRegistry with Default =>
+trait RegistryJsonReads {
+  _: NamedRegistry with RegistryDefault =>
 
   val namedReads: Reads[V] = {
-    case JsString(s) => Try(getWittDefault(s)) match {
+    case JsString(s) => Try(getWithDefault(s)) match {
       case Success(value) => JsSuccess(value)
       case Failure(exception) => JsError(JsonValidationError(exception.getMessage, s))
     }
@@ -24,7 +24,7 @@ trait JsonReads {
 
 }
 
-object JsonWrites {
+object RegistryJsonWrites {
 
   def namedWrites[T <: NamedValue]: Writes[T] = (o: T) => JsString(o.name)
 

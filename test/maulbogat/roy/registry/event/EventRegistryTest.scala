@@ -1,4 +1,4 @@
-package maulbogat.roy.event
+package maulbogat.roy.registry.event
 
 import maulbogat.roy.TestBase
 
@@ -22,11 +22,11 @@ class EventRegistryTest extends TestBase {
     }
 
     it("get by name") {
-      EventRegistry.getWittDefault("product.created") mustBe ProductCreatedEvent
+      EventRegistry.getWithDefault("product.created") mustBe ProductCreatedEvent
     }
 
     it("default error") {
-      the[IllegalAccessException] thrownBy EventRegistry.getWittDefault("does.not.exist") must have message "unknown event: does.not.exist"
+      the[IllegalAccessException] thrownBy EventRegistry.getWithDefault("does.not.exist") must have message "unknown event: does.not.exist"
     }
   }
 

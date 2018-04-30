@@ -1,4 +1,4 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
 trait NamedRegistry extends Registry {
 
@@ -10,26 +10,26 @@ trait NamedRegistry extends Registry {
 
 }
 
-trait Default {
+trait RegistryDefault {
   _: NamedRegistry =>
 
-  def getWittDefault(name: String): V
+  def getWithDefault(name: String): V
 
 }
 
-trait DefaultValue extends Default {
+trait RegistryDefaultValue extends RegistryDefault {
   _: NamedRegistry =>
 
-  override def getWittDefault(name: String): V = getByName(name).getOrElse(default)
+  override def getWithDefault(name: String): V = getByName(name).getOrElse(default)
 
   protected def default: V
 
 }
 
-trait DefaultError extends Default {
+trait RegistryDefaultError extends RegistryDefault {
   _: NamedRegistry =>
 
-  override def getWittDefault(name: String): V = getByName(name).getOrElse(throw error(name))
+  override def getWithDefault(name: String): V = getByName(name).getOrElse(throw error(name))
 
   protected def error(name: String): Throwable
 

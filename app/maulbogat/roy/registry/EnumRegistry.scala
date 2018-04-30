@@ -1,4 +1,4 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
 trait EnumRegistry extends Registry {
   _: Enumeration =>

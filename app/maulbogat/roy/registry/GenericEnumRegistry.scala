@@ -1,5 +1,6 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
+// Not sure if this is needed
 trait GenericEnumRegistry extends WrappedEnumRegistry {
   _: Enumeration =>
 

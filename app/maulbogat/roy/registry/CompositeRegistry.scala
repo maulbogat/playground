@@ -1,6 +1,6 @@
-package maulbogat.roy
+package maulbogat.roy.registry
 
-trait CompositeRegistry[K, V <: Registered[K]] extends GenericRegistry[V] {
+trait CompositeRegistry[K, V] extends GenericRegistry[V] {
 
   override protected type Key = K
 
