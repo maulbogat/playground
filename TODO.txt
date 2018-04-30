@@ -7,6 +7,9 @@
     6. View Type
     7. Actor
     8. Translation
-    9. Clock Action / History Type
-    10. Duration with Unit
-    11. Category Type
+    9. Clock Action Request
+    10. History Type
+    11. Duration Unit
+    12. Category Type
+
+- Validate Distinct Values
