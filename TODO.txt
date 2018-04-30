@@ -9,3 +9,7 @@
 9. Fruit
 10. Audit Operation
 11. Clock Action / History Type
+12. Duration with Unit
+13. Settings Resources
+14. Sub Category
+15. Category Type
