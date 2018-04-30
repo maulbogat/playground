@@ -7,9 +7,6 @@
 7. Actor
 8. Translation
 9. Fruit
-10. Audit Operation
-11. Clock Action / History Type
-12. Duration with Unit
-13. Settings Resources
-14. Sub Category
-15. Category Type
+10. Clock Action / History Type
+11. Duration with Unit
+12. Category Type
