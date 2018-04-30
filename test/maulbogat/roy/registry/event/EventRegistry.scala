@@ -1,6 +1,5 @@
 package maulbogat.roy.registry.event
 
-import maulbogat.roy._
 import maulbogat.roy.registry._
 
 object EventRegistry extends Enumeration

@@ -1,8 +1,8 @@
 package maulbogat.roy.registry.element
 
-import maulbogat.roy.TestBase
+import org.scalatest.{FunSpec, MustMatchers}
 
-class ElementServiceTest extends TestBase {
+class ElementServiceTest extends FunSpec with MustMatchers {
 
   private val earthService = new EarthService
 

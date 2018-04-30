@@ -1,8 +1,8 @@
 package maulbogat.roy.registry.event
 
-import maulbogat.roy.TestBase
+import org.scalatest.{FunSpec, MustMatchers}
 
-class EventRegistryTest extends TestBase {
+class EventRegistryTest extends FunSpec with MustMatchers {
 
   describe("event registry") {
     it("get all in order") {

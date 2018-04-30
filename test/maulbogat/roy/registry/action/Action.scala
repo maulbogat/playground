@@ -1,6 +1,5 @@
 package maulbogat.roy.registry.action
 
-import maulbogat.roy._
 import maulbogat.roy.registry._
 
 sealed trait Action extends Registered[Action] with NamedValue

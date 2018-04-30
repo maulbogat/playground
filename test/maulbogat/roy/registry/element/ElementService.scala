@@ -21,17 +21,15 @@ sealed trait Element
 
 object ElementRegistry extends Enumeration with CompelledRegistry with GenericRegistry[Element] {
 
-  case object Earth extends Element
-
   val earth: Register[Element] = register(Earth)
+  val wind: Register[Element] = register(Wind)
+  val fire: Register[Element] = register(Fire)
+
+  case object Earth extends Element
 
   case object Wind extends Element
 
-  val wind: Register[Element] = register(Wind)
-
   case object Fire extends Element
-
-  val fire: Register[Element] = register(Fire)
 
 }
 
