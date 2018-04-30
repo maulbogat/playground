@@ -10,6 +10,8 @@ trait NamedRegistry extends Registry {
 
   def getAllNames: List[String] = getAllValues.map(_.name)
 
+  def nameExists(name: String): Boolean = getByName(name).isDefined
+
 }
 
 trait NamedValue {
