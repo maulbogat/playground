@@ -7,7 +7,7 @@ object EventRegistry extends Enumeration
   with GenericRegistry[Event]
   with ByTypeRegistry
   with NamedRegistry
-  with RegistryDefaultError {
+  with NamedRegistryDefaultError {
 
   val userCreated: Register[Event] = register(UserCreatedEvent)
 

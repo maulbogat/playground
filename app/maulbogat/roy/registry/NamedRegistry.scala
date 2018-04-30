@@ -8,30 +8,7 @@ trait NamedRegistry extends Registry {
 
   def getByName(name: String): Option[V] = getAllValues.find(_.name == name)
 
-}
-
-trait RegistryDefault {
-  _: NamedRegistry =>
-
-  def getWithDefault(name: String): V
-
-}
-
-trait RegistryDefaultValue extends RegistryDefault {
-  _: NamedRegistry =>
-
-  override def getWithDefault(name: String): V = getByName(name).getOrElse(default)
-
-  protected def default: V
-
-}
-
-trait RegistryDefaultError extends RegistryDefault {
-  _: NamedRegistry =>
-
-  override def getWithDefault(name: String): V = getByName(name).getOrElse(throw error(name))
-
-  protected def error(name: String): Throwable
+  def getAllNames: List[String] = getAllValues.map(_.name)
 
 }
 

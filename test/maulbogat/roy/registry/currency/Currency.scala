@@ -4,7 +4,7 @@ import maulbogat.roy.registry._
 
 object Currency extends Enumeration
   with EnumRegistry
-  with RegistryDefaultError
+  with NamedRegistryDefaultError
   with NamedRegistry
   with IdentityRegistry {
 

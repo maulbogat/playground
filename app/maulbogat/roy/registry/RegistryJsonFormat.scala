@@ -5,14 +5,14 @@ import play.api.libs.json._
 import scala.util.{Failure, Success, Try}
 
 trait RegistryJsonFormat extends RegistryJsonReads {
-  _: NamedRegistry with RegistryDefault =>
+  _: NamedRegistry with NamedRegistryDefault =>
 
   val namedFormat: Format[V] = Format.apply(namedReads, RegistryJsonWrites.namedWrites[V])
 
 }
 
 trait RegistryJsonReads {
-  _: NamedRegistry with RegistryDefault =>
+  _: NamedRegistry with NamedRegistryDefault =>
 
   val namedReads: Reads[V] = {
     case JsString(s) => Try(getWithDefault(s)) match {
