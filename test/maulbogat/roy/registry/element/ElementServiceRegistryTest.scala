@@ -2,7 +2,7 @@ package maulbogat.roy.registry.element
 
 import org.scalatest.{FunSpec, MustMatchers}
 
-class ElementServiceTest extends FunSpec with MustMatchers {
+class ElementServiceRegistryTest extends FunSpec with MustMatchers {
 
   private val earthService = new EarthService
 
