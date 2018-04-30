@@ -13,3 +13,5 @@
     12. Category Type
 
 - Validate Distinct Values
+
+- Named Registry self type Registry instead of extend

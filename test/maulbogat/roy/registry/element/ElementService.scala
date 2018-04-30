@@ -1,5 +1,6 @@
 package maulbogat.roy.registry.element
 
+import maulbogat.roy.registry.Registry.CompelledGenericRegistry
 import maulbogat.roy.registry._
 import maulbogat.roy.registry.element.ElementRegistry.{Earth, Fire, Wind}
 
@@ -19,7 +20,7 @@ class FireService extends ElementService {
 
 sealed trait Element
 
-object ElementRegistry extends Enumeration with CompelledRegistry with GenericRegistry[Element] {
+object ElementRegistry extends CompelledGenericRegistry[Element] {
 
   val earth: Register[Element] = register(Earth)
   val wind: Register[Element] = register(Wind)

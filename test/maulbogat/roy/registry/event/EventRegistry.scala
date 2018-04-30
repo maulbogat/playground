@@ -1,13 +1,12 @@
 package maulbogat.roy.registry.event
 
+import maulbogat.roy.registry.Registry.CompelledGenericRegistry
 import maulbogat.roy.registry._
 
-object EventRegistry extends Enumeration
-  with CompelledRegistry
-  with GenericRegistry[Event]
-  with ByTypeRegistry
+object EventRegistry extends CompelledGenericRegistry[Event]
   with NamedRegistry
-  with NamedRegistryDefaultError {
+  with NamedRegistryDefaultError
+  with RegistryByType {
 
   val userCreated: Register[Event] = register(UserCreatedEvent)
 

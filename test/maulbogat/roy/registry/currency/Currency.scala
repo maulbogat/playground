@@ -1,14 +1,13 @@
 package maulbogat.roy.registry.currency
 
+import maulbogat.roy.registry.Registry.SimpleNamedRegistry
 import maulbogat.roy.registry._
 
-object Currency extends Enumeration
-  with EnumRegistry
-  with NamedRegistryDefaultError
-  with NamedRegistry
-  with IdentityRegistry {
+object Currency extends SimpleNamedRegistry
+  with NamedRegistryDefaultError {
 
-  override protected type V = Currency
+  override protected type NamedVal = Currency
+
   val GBP = Currency("GBP", "£")
   val USD = Currency("USD", "$")
   val EUR = Currency("EUR", "€")
