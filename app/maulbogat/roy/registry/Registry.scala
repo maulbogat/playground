@@ -16,14 +16,22 @@ trait Registry {
 
 object Registry {
 
-  trait SimpleNamedRegistry extends Enumeration
+  trait SimpleRegistry extends Enumeration
     with EnumRegistry
-    with NamedRegistry
     with IdentityRegistry {
 
-    protected type NamedVal <: Val with NamedValue
+    final override protected[registry] type V = EnumVal
 
-    override protected[registry] type V = NamedVal
+    protected type EnumVal <: Val
+
+  }
+
+  trait SimpleNamedRegistry extends SimpleRegistry
+    with NamedRegistry {
+
+    final override protected type EnumVal = NamedVal
+
+    protected type NamedVal <: Val with NamedValue
 
   }
 

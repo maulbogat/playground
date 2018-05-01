@@ -4,7 +4,7 @@ import maulbogat.roy.registry.Registry.SimpleNamedRegistry
 import maulbogat.roy.registry._
 
 object Currency extends SimpleNamedRegistry
-  with NamedRegistryDefaultError {
+  with RegistryDefaultError {
 
   override protected type NamedVal = Currency
 

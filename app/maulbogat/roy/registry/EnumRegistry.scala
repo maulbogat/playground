@@ -5,6 +5,6 @@ trait EnumRegistry extends Registry {
 
   override protected[registry] type Key <: Val
 
-  override protected[registry] def getAllKeys: List[Key] = values.toList.map(_.asInstanceOf[Key])
+  final override protected[registry] def getAllKeys: List[Key] = values.toList.map(_.asInstanceOf[Key])
 
 }

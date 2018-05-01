@@ -3,8 +3,8 @@ package maulbogat.roy.registry
 trait IdentityRegistry {
   _: Registry =>
 
-  override protected[registry] type Key = V
+  final override protected[registry] type Key = V
 
-  protected def keyToValue(key: Key): V = key
+  final override protected def keyToValue(key: Key): V = key
 
 }

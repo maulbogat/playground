@@ -5,7 +5,7 @@ import maulbogat.roy.registry._
 
 object EventRegistry extends CompelledGenericRegistry[Event]
   with NamedRegistry
-  with NamedRegistryDefaultError
+  with RegistryDefaultError
   with RegistryByType {
 
   val userCreated: Register[Event] = register(UserCreatedEvent)

@@ -2,6 +2,6 @@ package maulbogat.roy.registry
 
 trait GenericRegistry[T] extends Registry {
 
-  override type V = T
+  final override protected[registry] type V = T
 
 }
