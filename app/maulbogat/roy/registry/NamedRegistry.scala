@@ -2,7 +2,7 @@ package maulbogat.roy.registry
 
 trait NamedRegistry extends Registry {
 
-  override protected type V <: NamedValue
+  override protected[registry] type V <: NamedValue
 
   def getByName(name: Option[String]): Option[V] = name.flatMap(getByName)
 
