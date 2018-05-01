@@ -6,6 +6,6 @@ trait CompositeRegistry[K, V] extends GenericRegistry[V] {
 
   protected def keyRegistry: GenericRegistry[K]
 
-  override protected def getAllKeys: List[K] = keyRegistry.getAllValues
+  override protected[registry] def getAllKeys: List[K] = keyRegistry.getAllValues
 
 }

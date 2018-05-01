@@ -12,6 +12,10 @@
     11. Duration Unit
     12. Category Type
 
-- Validate Distinct Values
+- Generify and test validations
 
 - Named Registry self type Registry instead of extend
+
+- Make non named simple type
+
+- Move traits to package object

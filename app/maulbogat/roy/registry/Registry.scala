@@ -2,13 +2,13 @@ package maulbogat.roy.registry
 
 trait Registry {
 
-  protected type Key
+  protected[registry] type Key
 
-  protected type V
+  protected[registry] type V
 
   def getAllValues: List[V] = getAllKeys.map(keyToValue)
 
-  protected def getAllKeys: List[Key]
+  protected[registry] def getAllKeys: List[Key]
 
   protected def keyToValue(key: Key): V
 
@@ -23,7 +23,7 @@ object Registry {
 
     protected type NamedVal <: Val with NamedValue
 
-    override protected type V = NamedVal
+    override protected[registry] type V = NamedVal
 
   }
 
