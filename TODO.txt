@@ -19,3 +19,5 @@
 - Make non named simple type
 
 - Move traits to package object
+
+- Change / Remove identity
