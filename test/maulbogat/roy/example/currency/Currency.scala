@@ -1,4 +1,4 @@
-package maulbogat.roy.registry.currency
+package maulbogat.roy.example.currency
 
 import maulbogat.roy.registry.{NamedRegistry, RegistryDefaultError, SimpleRegistry, ToStringNamedValue}
 

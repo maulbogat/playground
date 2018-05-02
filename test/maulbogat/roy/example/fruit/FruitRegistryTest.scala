@@ -1,4 +1,4 @@
-package maulbogat.roy.registry.fruit
+package maulbogat.roy.example.fruit
 
 import org.scalatest.{FunSpec, MustMatchers}
 

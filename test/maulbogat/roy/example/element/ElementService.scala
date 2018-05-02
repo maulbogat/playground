@@ -1,7 +1,7 @@
-package maulbogat.roy.registry.element
+package maulbogat.roy.example.element
 
-import maulbogat.roy.registry.element.ElementRegistry.{Earth, Fire, Wind}
-import maulbogat.roy.registry.{ActiveRegistry, _}
+import maulbogat.roy.example.element.ElementRegistry.{Earth, Fire, Wind}
+import maulbogat.roy.registry.{ActiveRegistry, CompositeRegistry, Register, Registered}
 
 trait ElementService extends Registered[Element]
 

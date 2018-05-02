@@ -1,6 +1,6 @@
-package maulbogat.roy.registry.event
+package maulbogat.roy.example.event
 
-import maulbogat.roy.registry._
+import maulbogat.roy.registry.{ActiveRegistry, GenericNamedRegistry, Register, RegistryDefaultError}
 
 object EventRegistry extends ActiveRegistry[Event]
   with GenericNamedRegistry[Event]

@@ -1,4 +1,4 @@
-package maulbogat.roy.registry.action
+package maulbogat.roy.example.action
 
 import maulbogat.roy.registry._
 

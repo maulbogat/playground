@@ -1,4 +1,4 @@
-package maulbogat.roy.registry.element
+package maulbogat.roy.example.element
 
 import org.scalatest.{FunSpec, MustMatchers}
 
