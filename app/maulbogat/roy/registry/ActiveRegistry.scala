@@ -2,7 +2,6 @@ package maulbogat.roy.registry
 
 trait ActiveRegistry[T] extends EnumRegistry
   with GenericRegistryValue[T]
-  with RegistryKeyMapper
   with Registry {
 
   final override protected[registry] def keyToValue(key: K): V = key.asInstanceOf[Register[T]].element

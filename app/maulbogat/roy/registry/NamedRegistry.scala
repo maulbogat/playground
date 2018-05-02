@@ -1,7 +1,7 @@
 package maulbogat.roy.registry
 
 trait NamedRegistry {
-  _: Registry with RegistryValue =>
+  _: Registry =>
 
   protected type NamedVal <: NamedValue
 
@@ -18,7 +18,7 @@ trait NamedRegistry {
 }
 
 trait GenericNamedRegistry[T <: NamedValue] extends NamedRegistry {
-  _: Registry with RegistryValue =>
+  _: Registry =>
 
   final override protected type NamedVal = T
 }

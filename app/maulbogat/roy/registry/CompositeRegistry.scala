@@ -1,10 +1,7 @@
 package maulbogat.roy.registry
 
 trait CompositeRegistry[S, T] extends Registry
-  with RegistryKey
-  with GenericRegistryValue[T]
-  with RegistryKeyGetter
-  with RegistryKeyMapper {
+  with GenericRegistryValue[T] {
 
   final override protected[registry] type K = S
 
