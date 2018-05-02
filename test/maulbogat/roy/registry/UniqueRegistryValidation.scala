@@ -2,7 +2,7 @@ package maulbogat.roy.registry
 
 object UniqueRegistryValidation {
 
-  final def getDuplicateKeys(registry: RegistryKeyGetter): Set[RegistryKeyGetter#K] = getDuplications(registry.getAllKeys)
+  final def getDuplicateKeys(registry: Registry): Set[Registry#K] = getDuplications(registry.getAllKeys)
 
   private def getDuplications[T](all: List[T]): Set[T] = {
     val duplications = all diff all.distinct

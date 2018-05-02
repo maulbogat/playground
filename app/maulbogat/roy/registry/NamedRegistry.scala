@@ -3,8 +3,9 @@ package maulbogat.roy.registry
 trait NamedRegistry {
   _: Registry =>
 
-  final override protected[registry] type V = NamedVal
   protected type NamedVal <: NamedValue
+
+  final override protected[registry] type V = NamedVal
 
   final def getByName(name: Option[String]): Option[V] = name.flatMap(getByName)
 

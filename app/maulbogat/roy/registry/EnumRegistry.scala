@@ -1,7 +1,6 @@
 package maulbogat.roy.registry
 
-trait EnumRegistry extends Enumeration
-  with RegistryKeyGetter {
+trait EnumRegistry extends Enumeration with Registry {
 
   final override protected[registry] type K = Value
 
