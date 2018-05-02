@@ -1,6 +1,5 @@
 package maulbogat.roy.registry.action
 
-import maulbogat.roy.registry.Registry.CompelledGenericRegistry
 import maulbogat.roy.registry._
 
 sealed trait Action extends Registered[Action] with NamedValue
@@ -23,8 +22,8 @@ case object Love extends Action {
   override val registration: Registration = () => ActionRegistry.love
 }
 
-object ActionRegistry extends CompelledGenericRegistry[Action]
-  with NamedRegistry {
+object ActionRegistry extends ActiveRegistry[Action]
+  with GenericNamedRegistry[Action] {
 
   val eat: Register[Action] = register(Eat)
 

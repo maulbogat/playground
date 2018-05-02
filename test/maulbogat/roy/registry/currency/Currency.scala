@@ -1,19 +1,19 @@
 package maulbogat.roy.registry.currency
 
-import maulbogat.roy.registry.Registry.SimpleNamedRegistry
-import maulbogat.roy.registry._
+import maulbogat.roy.registry.{NamedRegistry, RegistryDefaultError, SimpleRegistry, ToStringNamedValue}
 
-object Currency extends SimpleNamedRegistry
+object Currency extends SimpleRegistry
+  with NamedRegistry
   with RegistryDefaultError {
 
-  override protected type NamedVal = Currency
+  override type NamedVal = Currency
 
-  val GBP = Currency("GBP", "£")
-  val USD = Currency("USD", "$")
-  val EUR = Currency("EUR", "€")
+  val GBP = Currency("£")
+  val USD = Currency("$")
+  val EUR = Currency("€")
 
-  override protected def error(name: String) = new IllegalArgumentException(s"invalid currency: $name")
+  override def error(name: String) = new IllegalArgumentException(s"invalid currency: $name")
 
-  protected case class Currency(name: String, symbol: String) extends Val with NamedValue
+  case class Currency(symbol: String) extends Val with ToStringNamedValue
 
 }

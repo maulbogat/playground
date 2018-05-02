@@ -1,15 +1,14 @@
 package maulbogat.roy.registry.fruit
 
-import maulbogat.roy.registry.Registry.SimpleNamedRegistry
-import maulbogat.roy.registry._
+import maulbogat.roy.registry.{NamedRegistry, SimpleRegistry, ToStringNamedValue}
 
-object Fruit extends SimpleNamedRegistry {
+object Fruit extends SimpleRegistry with NamedRegistry {
 
-  override protected type NamedVal = Fruit
+  override type NamedVal = Fruit
   val mango: Fruit = new Fruit
   val banana: Fruit = new Fruit
   val melon: Fruit = new Fruit
 
-  protected class Fruit extends Val with ToStringNamedValue
+  class Fruit extends Val with ToStringNamedValue
 
 }

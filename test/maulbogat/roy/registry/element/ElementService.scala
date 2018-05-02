@@ -1,29 +1,30 @@
 package maulbogat.roy.registry.element
 
-import maulbogat.roy.registry.Registry.CompelledGenericRegistry
-import maulbogat.roy.registry._
 import maulbogat.roy.registry.element.ElementRegistry.{Earth, Fire, Wind}
+import maulbogat.roy.registry.{ActiveRegistry, _}
 
 trait ElementService extends Registered[Element]
 
 class EarthService extends ElementService {
-  override protected val registration: Registration = () => ElementRegistry.earth
+  override val registration: Registration = () => ElementRegistry.earth
 }
 
 class WindService extends ElementService {
-  override protected val registration: Registration = () => ElementRegistry.wind
+  override val registration: Registration = () => ElementRegistry.wind
 }
 
 class FireService extends ElementService {
-  override protected val registration: Registration = () => ElementRegistry.fire
+  override val registration: Registration = () => ElementRegistry.fire
 }
 
 sealed trait Element
 
-object ElementRegistry extends CompelledGenericRegistry[Element] {
+object ElementRegistry extends ActiveRegistry[Element] {
 
   val earth: Register[Element] = register(Earth)
+
   val wind: Register[Element] = register(Wind)
+
   val fire: Register[Element] = register(Fire)
 
   case object Earth extends Element
@@ -38,9 +39,9 @@ class ElementServiceRegistry(earthService: EarthService,
                              windService: WindService,
                              fireService: FireService) extends CompositeRegistry[Element, ElementService] {
 
-  override protected def keyRegistry: GenericRegistry[Element] = ElementRegistry
+  override def keyRegistry: ActiveRegistry[Element] = ElementRegistry
 
-  override protected def keyToValue(key: Element): ElementService = key match {
+  override def keyToValue(key: Element): ElementService = key match {
     case Earth => earthService
     case Wind => windService
     case Fire => fireService
