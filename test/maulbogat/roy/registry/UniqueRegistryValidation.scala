@@ -7,9 +7,9 @@ object UniqueRegistryValidation {
     duplications.toSet
   }
 
-  def getDuplicateKeys(registry: Registry): Set[registry.Key] = getDuplications(registry.getAllKeys)
+  def getDuplicateKeys(registry: RegistryKeyGetter with RegistryKey): Set[RegistryKey#K] = getDuplications(registry.getAllKeys)
 
-  def getDuplicateValues(registry: Registry): Set[registry.V] = getDuplications(registry.getAllValues)
+  def getDuplicateValues(registry: Registry with RegistryValue): Set[RegistryValue#V] = getDuplications(registry.getAllValues)
 
   def getDuplicateNames(registry: NamedRegistry): Set[String] = getDuplications(registry.getAllNames)
 
