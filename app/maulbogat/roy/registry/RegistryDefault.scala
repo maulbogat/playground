@@ -10,24 +10,24 @@ trait RegistryDefault {
 trait RegistryDefaultError extends RegistryDefault {
   _: NamedRegistry =>
 
-  override def getWithDefault(name: String): NamedVal = getByName(name).getOrElse(throw error(name))
+  final override def getWithDefault(name: String): NamedVal = getByName(name).getOrElse(throw error(name))
 
-  def error(name: String): Throwable
+  protected def error(name: String): Throwable
 
 }
 
 trait RegistryDefaultValue extends RegistryDefault {
   _: NamedRegistry =>
 
-  override def getWithDefault(name: String): V = getByName(name).getOrElse(default)
+  final override def getWithDefault(name: String): V = getByName(name).getOrElse(default)
 
-  def default: NamedVal
+  protected def default: NamedVal
 
 }
 
 trait RegistryDefaultNaive extends RegistryDefault {
   _: NamedRegistry =>
 
-  override def getWithDefault(name: String): NamedVal = getByName(name).get
+  final override def getWithDefault(name: String): NamedVal = getByName(name).get
 
 }

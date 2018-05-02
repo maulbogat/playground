@@ -5,8 +5,8 @@ trait SimpleRegistry extends EnumRegistry
   with RegistryKeyMapper
   with Registry {
 
-  override type V <: Value
+  override protected[registry] type V <: Value
 
-  override def keyToValue(key: K): V = key.asInstanceOf[V]
+  final override protected[registry] def keyToValue(key: K): V = key.asInstanceOf[V]
 
 }

@@ -4,8 +4,8 @@ trait EnumRegistry extends Enumeration
   with RegistryKey
   with RegistryKeyGetter {
 
-  override type K = Value
+  final override protected[registry] type K = Value
 
-  override def getAllKeys: List[K] = values.toList
+  final override protected[registry] def getAllKeys: List[K] = values.toList
 
 }
