@@ -1,42 +1,34 @@
 package maulbogat.roy.registry
 
 trait Registry {
-
-  protected[registry] type Key
-
-  protected[registry] type V
+  _: RegistryKeyGetter with RegistryValue with RegistryKeyMapper =>
 
   def getAllValues: List[V] = getAllKeys.map(keyToValue)
 
-  protected[registry] def getAllKeys: List[Key]
+}
 
-  protected def keyToValue(key: Key): V
+trait RegistryKey {
+  type K
+}
+
+trait RegistryValue {
+  type V
+}
+
+trait RegistryKeyGetter {
+  _: RegistryKey =>
+
+  def getAllKeys: List[K]
 
 }
 
-object Registry {
+trait RegistryKeyMapper {
+  _: RegistryKey with RegistryValue =>
 
-  trait SimpleRegistry extends Enumeration
-    with EnumRegistry
-    with IdentityRegistry {
+  def keyToValue(key: K): V
 
-    final override protected[registry] type V = EnumVal
+}
 
-    protected type EnumVal <: Val
-
-  }
-
-  trait SimpleNamedRegistry extends SimpleRegistry
-    with NamedRegistry {
-
-    final override protected type EnumVal = NamedVal
-
-    protected type NamedVal <: Val with NamedValue
-
-  }
-
-  trait CompelledGenericRegistry[V] extends Enumeration
-    with CompelledRegistry
-    with GenericRegistry[V]
-
+trait GenericRegistryValue[T] extends RegistryValue {
+  override type V = T
 }
