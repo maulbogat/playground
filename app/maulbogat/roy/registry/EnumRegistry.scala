@@ -1,10 +1,11 @@
 package maulbogat.roy.registry
 
-trait EnumRegistry extends Registry {
-  _: Enumeration =>
+trait EnumRegistry extends Enumeration
+  with RegistryKey
+  with RegistryKeyGetter {
 
-  override protected[registry] type Key <: Val
+  override type K = Value
 
-  final override protected[registry] def getAllKeys: List[Key] = values.toList.map(_.asInstanceOf[Key])
+  override def getAllKeys: List[K] = values.toList
 
 }

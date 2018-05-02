@@ -1,11 +1,17 @@
 package maulbogat.roy.registry
 
-trait CompositeRegistry[K, V] extends GenericRegistry[V] {
+trait CompositeRegistry[S, T] extends Registry
+  with RegistryKey
+  with RegistryValue
+  with RegistryKeyGetter
+  with RegistryKeyMapper {
 
-  override protected[registry] type Key = K
+  override type K = S
 
-  protected def keyRegistry: GenericRegistry[K]
+  override type V = T
 
-  override protected[registry] def getAllKeys: List[K] = keyRegistry.getAllValues
+  def keyRegistry: Registry with GenericRegistryValue[S]
+
+  def getAllKeys: List[S] = keyRegistry.getAllValues
 
 }

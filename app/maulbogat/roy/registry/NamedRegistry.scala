@@ -1,8 +1,11 @@
 package maulbogat.roy.registry
 
-trait NamedRegistry extends Registry {
+trait NamedRegistry {
+  _: Registry with RegistryValue =>
 
-  override protected[registry] type V <: NamedValue
+  type NamedVal <: NamedValue
+
+  override type V = NamedVal
 
   def getByName(name: Option[String]): Option[V] = name.flatMap(getByName)
 
@@ -14,14 +17,16 @@ trait NamedRegistry extends Registry {
 
 }
 
+trait GenericNamedRegistry[T <: NamedValue] extends NamedRegistry {
+  _: Registry with RegistryValue =>
+
+  override type NamedVal = T
+}
+
 trait NamedValue {
-
   def name: String
-
 }
 
 trait ToStringNamedValue extends NamedValue {
-
-  final def name: String = toString
-
+  def name: String = toString
 }
