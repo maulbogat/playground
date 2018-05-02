@@ -1,34 +1,23 @@
 package maulbogat.roy.registry
 
-trait Registry {
-  _: RegistryKeyGetter with RegistryValue with RegistryKeyMapper =>
+import scala.reflect.ClassTag
 
-  def getAllValues: List[V] = getAllKeys.map(keyToValue)
+trait Registry extends RegistryKeyGetter {
 
-}
+  protected[registry] type V
 
-trait RegistryKey {
-  type K
-}
+  protected[registry] def keyToValue(key: K): V
 
-trait RegistryValue {
-  type V
+  final def getByType[T <: V : ClassTag]: List[T] = getAllValues.collect { case t: T => t }
+
+  final def getAllValues: List[V] = getAllKeys.map(keyToValue)
+
 }
 
 trait RegistryKeyGetter {
-  _: RegistryKey =>
 
-  def getAllKeys: List[K]
+  protected[registry] type K
 
-}
+  protected[registry] def getAllKeys: List[K]
 
-trait RegistryKeyMapper {
-  _: RegistryKey with RegistryValue =>
-
-  def keyToValue(key: K): V
-
-}
-
-trait GenericRegistryValue[T] extends RegistryValue {
-  override type V = T
 }

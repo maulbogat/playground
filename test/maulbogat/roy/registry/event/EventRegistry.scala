@@ -3,6 +3,7 @@ package maulbogat.roy.registry.event
 import maulbogat.roy.registry._
 
 object EventRegistry extends ActiveRegistry[Event]
+  with NamedRegistry
   with GenericNamedRegistry[Event]
   with RegistryDefaultError {
 

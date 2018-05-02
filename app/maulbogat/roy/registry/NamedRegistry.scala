@@ -21,12 +21,17 @@ trait GenericNamedRegistry[T <: NamedValue] extends NamedRegistry {
   _: Registry =>
 
   final override protected type NamedVal = T
+
 }
 
 trait NamedValue {
+
   def name: String
+
 }
 
 trait ToStringNamedValue extends NamedValue {
+
   final def name: String = toString
+
 }
