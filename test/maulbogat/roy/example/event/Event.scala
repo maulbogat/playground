@@ -7,8 +7,6 @@ sealed trait Event extends Registered[Event] with NamedValue
 
 sealed trait UserEvent extends Event
 
-sealed trait ProductEvent extends Event
-
 case object UserCreatedEvent extends UserEvent {
   override val name: String = "user.created"
 
@@ -20,6 +18,8 @@ case object UserDeletedEvent extends UserEvent {
 
   override val registration: Registration = () => EventRegistry.userDeleted
 }
+
+sealed trait ProductEvent extends Event
 
 case object ProductCreatedEvent extends ProductEvent {
   override val name: String = "product.created"

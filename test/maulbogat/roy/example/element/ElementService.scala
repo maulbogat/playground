@@ -21,17 +21,14 @@ sealed trait Element
 
 object ElementRegistry extends ExternalRegistry[Element] {
 
+  case object Earth extends Element
   val earth: Register[Element] = register(Earth)
 
+  case object Wind extends Element
   val wind: Register[Element] = register(Wind)
 
-  val fire: Register[Element] = register(Fire)
-
-  case object Earth extends Element
-
-  case object Wind extends Element
-
   case object Fire extends Element
+  val fire: Register[Element] = register(Fire)
 
 }
 
