@@ -1,6 +1,7 @@
-package maulbogat.roy.registry.named
+package maulbogat.roy.registry.json
 
 import maulbogat.roy.registry.Registry
+import maulbogat.roy.registry.named.{NamedRegistry, RegistryDefault}
 import play.api.libs.json._
 
 import scala.util.{Failure, Success, Try}
@@ -16,6 +17,6 @@ trait RegistryJson {
     case _ => JsError("invalid json value")
   }
 
-  final val namedFormat: Format[V] = Format.apply(namedReads, NamedValue.writes)
+  final val namedFormat: Format[V] = Format.apply(namedReads, NamedValueJson.writes)
 
 }
