@@ -10,7 +10,7 @@ private[registry] trait Registry {
 
   protected[registry] def getAllKeys: List[K]
 
-  protected[registry] def keyToValue(key: K): V
+  protected def keyToValue(key: K): V
 
   final def getByType[T <: V : ClassTag]: List[T] = getAllValues.collect { case t: T => t }
 

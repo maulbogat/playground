@@ -2,7 +2,7 @@ package maulbogat.roy.registry
 
 trait CompositeRegistry[S, T] extends Registry {
 
-  protected def keyRegistry: Registry with ExternalRegistry[S]
+  protected def keyRegistry: ExternalRegistry[S]
 
   final override protected[registry] type K = S
 

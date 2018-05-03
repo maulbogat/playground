@@ -6,7 +6,7 @@ abstract class ExternalRegistry[T] extends EnumRegistry
   with GenericRegistry[T]
   with Registry {
 
-  final override protected[registry] def keyToValue(key: K): V = key.asInstanceOf[Register[T]].element
+  final override protected def keyToValue(key: K): V = key.asInstanceOf[Register[T]].element
 
   final protected def register(element: T): Register[T] = ValWrapper(element)
 

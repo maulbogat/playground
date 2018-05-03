@@ -9,7 +9,7 @@ abstract class InternalRegistry extends EnumRegistry
 
   override protected[registry] type V = RegistryValue
 
-  final override protected[registry] def keyToValue(key: K): V = key.asInstanceOf[V]
+  final override protected def keyToValue(key: K): V = key.asInstanceOf[V]
 
 }
 
