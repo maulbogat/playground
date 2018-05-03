@@ -1,6 +1,6 @@
 package maulbogat.roy.registry
 
-trait EnumRegistry extends Enumeration with Registry {
+private[registry] abstract class EnumRegistry extends Enumeration with Registry {
 
   final override protected[registry] type K = Value
 

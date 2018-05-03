@@ -1,6 +1,6 @@
 package maulbogat.roy.registry
 
-trait ActiveRegistry[T] extends EnumRegistry
+abstract class ActiveRegistry[T] extends EnumRegistry
   with Registry {
 
   override protected[registry] type V = T // TODO make final

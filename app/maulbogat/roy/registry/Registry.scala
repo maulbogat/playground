@@ -2,7 +2,7 @@ package maulbogat.roy.registry
 
 import scala.reflect.ClassTag
 
-trait Registry {
+private[registry] trait Registry {
 
   protected[registry] type K
 

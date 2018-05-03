@@ -1,6 +1,6 @@
 package maulbogat.roy.registry
 
-trait SimpleRegistry extends EnumRegistry
+abstract class SimpleRegistry extends EnumRegistry
   with Registry {
 
   override protected[registry] type V <: Value

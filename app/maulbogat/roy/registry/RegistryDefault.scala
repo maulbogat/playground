@@ -1,6 +1,6 @@
 package maulbogat.roy.registry
 
-trait RegistryDefault {
+private[registry] trait RegistryDefault {
   _: NamedRegistry =>
 
   def getWithDefault(name: String): NamedVal
