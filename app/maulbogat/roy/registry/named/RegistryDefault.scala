@@ -1,4 +1,4 @@
-package maulbogat.roy.registry
+package maulbogat.roy.registry.named
 
 private[registry] trait RegistryDefault {
   _: NamedRegistry =>

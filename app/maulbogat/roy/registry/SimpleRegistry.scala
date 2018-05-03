@@ -1,5 +1,7 @@
 package maulbogat.roy.registry
 
+import maulbogat.roy.registry.named.{NamedValue, TypeNamedRegistry}
+
 abstract class SimpleRegistry extends EnumRegistry
   with Registry {
 

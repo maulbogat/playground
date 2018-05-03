@@ -1,6 +1,7 @@
 package maulbogat.roy.example.fruit
 
-import maulbogat.roy.registry.{SimpleNamedRegistry, ToStringNamedValue}
+import maulbogat.roy.registry.SimpleNamedRegistry
+import maulbogat.roy.registry.named.ToStringNamedValue
 
 object Fruit extends SimpleNamedRegistry {
 

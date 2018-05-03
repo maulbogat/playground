@@ -1,4 +1,6 @@
-package maulbogat.roy.registry
+package maulbogat.roy.registry.named
+
+import maulbogat.roy.registry.Registry
 
 private[registry] trait NamedRegistry {
   _: Registry =>

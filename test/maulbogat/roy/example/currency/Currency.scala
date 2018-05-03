@@ -1,6 +1,7 @@
 package maulbogat.roy.example.currency
 
 import maulbogat.roy.registry._
+import maulbogat.roy.registry.named.{RegistryDefaultError, ToStringNamedValue}
 
 object Currency extends SimpleNamedRegistry
   with RegistryDefaultError {

@@ -1,6 +1,7 @@
 package maulbogat.roy.example.event
 
 import maulbogat.roy.registry._
+import maulbogat.roy.registry.named.RegistryDefaultError
 
 object EventRegistry extends ActiveNamedRegistry[Event]
   with RegistryDefaultError {

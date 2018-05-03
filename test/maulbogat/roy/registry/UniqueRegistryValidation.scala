@@ -1,5 +1,7 @@
 package maulbogat.roy.registry
 
+import maulbogat.roy.registry.named.NamedRegistry
+
 object UniqueRegistryValidation {
 
   final def getDuplicateKeys(registry: Registry): Set[Registry#K] = getDuplications(registry.getAllKeys)
