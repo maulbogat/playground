@@ -5,7 +5,7 @@ private[registry] trait NamedRegistry {
 
   protected type NamedVal <: NamedValue
 
-  final override protected[registry] type V = NamedVal
+  override protected[registry] type V = NamedVal
 
   final def getByName(name: Option[String]): Option[V] = name.flatMap(getByName)
 
@@ -14,6 +14,13 @@ private[registry] trait NamedRegistry {
   final def nameExists(name: String): Boolean = getByName(name).isDefined
 
   final def getByName(name: String): Option[V] = getAllValues.find(_.name == name)
+
+}
+
+trait TypeNamedRegistry extends NamedRegistry {
+  _: Registry =>
+
+  final override protected[registry] type V = NamedVal
 
 }
 

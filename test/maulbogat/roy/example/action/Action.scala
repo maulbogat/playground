@@ -22,8 +22,7 @@ case object Love extends Action {
   override val registration: Registration = () => ActionRegistry.love
 }
 
-object ActionRegistry extends ActiveRegistry[Action]
-  with GenericNamedRegistry[Action] {
+object ActionRegistry extends ActiveNamedRegistry[Action] {
 
   val eat: Register[Action] = register(Eat)
 

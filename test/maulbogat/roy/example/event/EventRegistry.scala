@@ -1,9 +1,8 @@
 package maulbogat.roy.example.event
 
-import maulbogat.roy.registry.{ActiveRegistry, GenericNamedRegistry, Register, RegistryDefaultError}
+import maulbogat.roy.registry._
 
-object EventRegistry extends ActiveRegistry[Event]
-  with GenericNamedRegistry[Event]
+object EventRegistry extends ActiveNamedRegistry[Event]
   with RegistryDefaultError {
 
   val userCreated: Register[Event] = register(UserCreatedEvent)

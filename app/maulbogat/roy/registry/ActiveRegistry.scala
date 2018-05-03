@@ -26,3 +26,6 @@ trait Register[T] {
   def element: T
 
 }
+
+abstract class ActiveNamedRegistry[T <: NamedValue] extends ActiveRegistry[T]
+  with GenericNamedRegistry[T]

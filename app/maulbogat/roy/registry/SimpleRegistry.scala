@@ -8,3 +8,10 @@ abstract class SimpleRegistry extends EnumRegistry
   final override protected[registry] def keyToValue(key: K): V = key.asInstanceOf[V]
 
 }
+
+abstract class SimpleNamedRegistry extends SimpleRegistry
+  with TypeNamedRegistry {
+
+  override protected type NamedVal <: Value with NamedValue
+
+}
