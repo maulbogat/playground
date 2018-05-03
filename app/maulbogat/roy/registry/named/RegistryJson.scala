@@ -16,12 +16,6 @@ trait RegistryJson {
     case _ => JsError("invalid json value")
   }
 
-  final val namedFormat: Format[V] = Format.apply(namedReads, RegistryJsonWrites.namedWrites[V])
-
-}
-
-object RegistryJsonWrites {
-
-  final def namedWrites[T <: NamedValue]: Writes[T] = (o: T) => JsString(o.name)
+  final val namedFormat: Format[V] = Format.apply(namedReads, NamedValue.writes)
 
 }
