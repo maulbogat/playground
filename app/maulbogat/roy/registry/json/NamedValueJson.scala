@@ -8,4 +8,3 @@ object NamedValueJson {
   def writes: Writes[NamedValue] = (o: NamedValue) => JsString(o.name)
 
 }
-
