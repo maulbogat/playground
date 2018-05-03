@@ -26,10 +26,3 @@ trait DefaultRegistryValue extends RegistryDefault {
   protected def default: V
 
 }
-
-trait NaiveDefaultRegistry extends RegistryDefault {
-  _: Registry with NamedRegistry =>
-
-  final override def getWithDefault(name: String): V = getByName(name).get
-
-}
