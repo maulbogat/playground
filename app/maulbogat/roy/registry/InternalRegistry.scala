@@ -2,8 +2,7 @@ package maulbogat.roy.registry
 
 import maulbogat.roy.registry.named.{NamedValue, TypeNamedRegistry}
 
-abstract class InternalRegistry extends EnumRegistry
-  with Registry {
+abstract class InternalRegistry extends EnumRegistry {
 
   protected type RegistryValue <: Value
 
