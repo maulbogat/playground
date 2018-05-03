@@ -5,7 +5,9 @@ import maulbogat.roy.registry.named.{NamedValue, TypeNamedRegistry}
 abstract class SimpleRegistry extends EnumRegistry
   with Registry {
 
-  override protected[registry] type V <: Value
+  protected type RegistryValue <: Value
+
+  override protected[registry] type V = RegistryValue
 
   final override protected[registry] def keyToValue(key: K): V = key.asInstanceOf[V]
 
@@ -14,6 +16,8 @@ abstract class SimpleRegistry extends EnumRegistry
 abstract class SimpleNamedRegistry extends SimpleRegistry
   with TypeNamedRegistry {
 
-  override protected type NamedVal <: Value with NamedValue
+  override protected type NamedRegistryValue <: Value with NamedValue
+
+  final override protected type RegistryValue = NamedRegistryValue
 
 }

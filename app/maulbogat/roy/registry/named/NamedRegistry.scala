@@ -5,9 +5,9 @@ import maulbogat.roy.registry.Registry
 private[registry] trait NamedRegistry {
   _: Registry =>
 
-  protected type NamedVal <: NamedValue
+  protected type NamedRegistryValue <: NamedValue
 
-  override protected[registry] type V = NamedVal
+  override protected[registry] type V = NamedRegistryValue
 
   final def getByName(name: Option[String]): Option[V] = name.flatMap(getByName)
 
@@ -22,13 +22,13 @@ private[registry] trait NamedRegistry {
 trait TypeNamedRegistry extends NamedRegistry {
   _: Registry =>
 
-  final override protected[registry] type V = NamedVal
+  final override protected[registry] type V = NamedRegistryValue
 
 }
 
 trait GenericNamedRegistry[T <: NamedValue] extends NamedRegistry {
   _: Registry =>
 
-  final override protected type NamedVal = T
+  final override protected type NamedRegistryValue = T
 
 }

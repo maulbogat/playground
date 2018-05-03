@@ -3,14 +3,14 @@ package maulbogat.roy.registry.named
 private[registry] trait RegistryDefault {
   _: NamedRegistry =>
 
-  def getWithDefault(name: String): NamedVal
+  def getWithDefault(name: String): NamedRegistryValue
 
 }
 
 trait RegistryDefaultError extends RegistryDefault {
   _: NamedRegistry =>
 
-  final override def getWithDefault(name: String): NamedVal = getByName(name).getOrElse(throw error(name))
+  final override def getWithDefault(name: String): NamedRegistryValue = getByName(name).getOrElse(throw error(name))
 
   protected def error(name: String): Throwable
 
@@ -21,13 +21,13 @@ trait RegistryDefaultValue extends RegistryDefault {
 
   final override def getWithDefault(name: String): V = getByName(name).getOrElse(default)
 
-  protected def default: NamedVal
+  protected def default: NamedRegistryValue
 
 }
 
 trait RegistryDefaultNaive extends RegistryDefault {
   _: NamedRegistry =>
 
-  final override def getWithDefault(name: String): NamedVal = getByName(name).get
+  final override def getWithDefault(name: String): NamedRegistryValue = getByName(name).get
 
 }

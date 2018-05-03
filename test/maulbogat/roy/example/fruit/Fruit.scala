@@ -5,10 +5,9 @@ import maulbogat.roy.registry.named.ToStringNamedValue
 
 object Fruit extends SimpleNamedRegistry {
 
-  override type NamedVal = Fruit
-  val mango: Fruit = new Fruit
-  val banana: Fruit = new Fruit
-  val melon: Fruit = new Fruit
+  override protected type NamedRegistryValue = Fruit
+
+  val mango, banana, melon = new Fruit
 
   class Fruit extends Val with ToStringNamedValue
 
