@@ -1,9 +1,9 @@
 package maulbogat.roy.example.fruit
 
-import maulbogat.roy.registry.SimpleNamedRegistry
+import maulbogat.roy.registry.NamedInternalRegistry
 import maulbogat.roy.registry.named.ToStringNamedValue
 
-object Fruit extends SimpleNamedRegistry {
+object Fruit extends NamedInternalRegistry {
 
   override protected type NamedRegistryValue = Fruit
 

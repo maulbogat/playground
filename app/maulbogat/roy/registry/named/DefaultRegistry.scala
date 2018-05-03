@@ -9,7 +9,7 @@ private[registry] trait RegistryDefault {
 
 }
 
-trait RegistryDefaultError extends RegistryDefault {
+trait DefaultRegistryError extends RegistryDefault {
   _: Registry with NamedRegistry =>
 
   final override def getWithDefault(name: String): V = getByName(name).getOrElse(throw error(name))
@@ -18,7 +18,7 @@ trait RegistryDefaultError extends RegistryDefault {
 
 }
 
-trait RegistryDefaultValue extends RegistryDefault {
+trait DefaultRegistryValue extends RegistryDefault {
   _: Registry with NamedRegistry =>
 
   final override def getWithDefault(name: String): V = getByName(name).getOrElse(default)
@@ -27,7 +27,7 @@ trait RegistryDefaultValue extends RegistryDefault {
 
 }
 
-trait RegistryDefaultNaive extends RegistryDefault {
+trait NaiveDefaultRegistry extends RegistryDefault {
   _: Registry with NamedRegistry =>
 
   final override def getWithDefault(name: String): V = getByName(name).get

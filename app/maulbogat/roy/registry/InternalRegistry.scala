@@ -2,7 +2,7 @@ package maulbogat.roy.registry
 
 import maulbogat.roy.registry.named.{NamedValue, TypeNamedRegistry}
 
-abstract class SimpleRegistry extends EnumRegistry
+abstract class InternalRegistry extends EnumRegistry
   with Registry {
 
   protected type RegistryValue <: Value
@@ -13,7 +13,7 @@ abstract class SimpleRegistry extends EnumRegistry
 
 }
 
-abstract class SimpleNamedRegistry extends SimpleRegistry
+abstract class NamedInternalRegistry extends InternalRegistry
   with TypeNamedRegistry {
 
   override protected type NamedRegistryValue <: Value with NamedValue

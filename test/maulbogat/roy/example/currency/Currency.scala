@@ -1,10 +1,10 @@
 package maulbogat.roy.example.currency
 
 import maulbogat.roy.registry._
-import maulbogat.roy.registry.named.{RegistryDefaultError, ToStringNamedValue}
+import maulbogat.roy.registry.named.{DefaultRegistryError, ToStringNamedValue}
 
-object Currency extends SimpleNamedRegistry
-  with RegistryDefaultError {
+object Currency extends NamedInternalRegistry
+  with DefaultRegistryError {
 
   override protected type NamedRegistryValue = Currency
 

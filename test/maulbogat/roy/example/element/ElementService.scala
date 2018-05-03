@@ -1,7 +1,7 @@
 package maulbogat.roy.example.element
 
 import maulbogat.roy.example.element.ElementRegistry.{Earth, Fire, Wind}
-import maulbogat.roy.registry.{ActiveRegistry, CompositeRegistry, Register, Registered}
+import maulbogat.roy.registry.{CompositeRegistry, ExternalRegistry, Register, Registered}
 
 trait ElementService extends Registered[Element]
 
@@ -19,7 +19,7 @@ class FireService extends ElementService {
 
 sealed trait Element
 
-object ElementRegistry extends ActiveRegistry[Element] {
+object ElementRegistry extends ExternalRegistry[Element] {
 
   val earth: Register[Element] = register(Earth)
 
@@ -39,7 +39,7 @@ class ElementServiceRegistry(earthService: EarthService,
                              windService: WindService,
                              fireService: FireService) extends CompositeRegistry[Element, ElementService] {
 
-  override def keyRegistry: ActiveRegistry[Element] = ElementRegistry
+  override def keyRegistry: ExternalRegistry[Element] = ElementRegistry
 
   override def keyToValue(key: Element): ElementService = key match {
     case Earth => earthService

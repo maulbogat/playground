@@ -8,12 +8,12 @@ private[registry] trait Registry {
 
   protected[registry] type V
 
-  final def getByType[T <: V : ClassTag]: List[T] = getAllValues.collect { case t: T => t }
-
-  final def getAllValues: List[V] = getAllKeys.map(keyToValue)
-
   protected[registry] def getAllKeys: List[K]
 
   protected[registry] def keyToValue(key: K): V
+
+  final def getByType[T <: V : ClassTag]: List[T] = getAllValues.collect { case t: T => t }
+
+  final def getAllValues: List[V] = getAllKeys.map(keyToValue)
 
 }

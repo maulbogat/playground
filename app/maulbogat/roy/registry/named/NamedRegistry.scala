@@ -1,9 +1,11 @@
 package maulbogat.roy.registry.named
 
-import maulbogat.roy.registry.{ActiveRegistry, Registry}
+import maulbogat.roy.registry.Registry
 
 private[registry] trait NamedRegistry {
   _: Registry =>
+
+  override protected[registry] type V <: NamedValue
 
   protected[registry] def valueToName(value: V): String
 
@@ -29,22 +31,10 @@ trait TypeNamedRegistry extends NamedRegistry {
 }
 
 trait GenericNamedRegistry[T <: NamedValue] extends NamedRegistry {
-  _: ActiveRegistry[T] =>
+  _: Registry with GenericRegistry[T] =>
 
-  override protected[registry] type V = T
+  final override protected[registry] type V = T // TODO remove
 
   final override protected[registry] def valueToName(value: V): String = value.name
-
-}
-
-trait DefaultNamedRegistry extends NamedRegistry {
-  _: Registry =>
-
-  protected def defaultName: String
-
-  final override protected[registry] def valueToName(value: V): String = value match {
-    case named: NamedValue => named.name
-    case _ => defaultName
-  }
 
 }
