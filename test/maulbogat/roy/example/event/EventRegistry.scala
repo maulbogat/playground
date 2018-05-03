@@ -14,6 +14,6 @@ object EventRegistry extends NamedExternalRegistry[Event]
 
   val productDeleted: Register[Event] = register(ProductDeletedEvent)
 
-  override def error(name: String): Throwable = new IllegalAccessException(s"unknown event: $name")
+  override def error(name: String): Throwable = new IllegalArgumentException(s"unknown event: $name")
 
 }

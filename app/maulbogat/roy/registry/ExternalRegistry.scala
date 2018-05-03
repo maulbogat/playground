@@ -1,6 +1,6 @@
 package maulbogat.roy.registry
 
-import maulbogat.roy.registry.named.{GenericNamedRegistry, GenericRegistry, NamedValue}
+import maulbogat.roy.registry.named.{GenericNamedRegistry, NamedValue}
 
 abstract class ExternalRegistry[T] extends EnumRegistry
   with GenericRegistry[T]

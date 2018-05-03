@@ -26,7 +26,7 @@ class EventRegistryTest extends FunSpec with MustMatchers {
     }
 
     it("default error") {
-      the[IllegalAccessException] thrownBy EventRegistry.getWithDefault("does.not.exist") must have message "unknown event: does.not.exist"
+      the[IllegalArgumentException] thrownBy EventRegistry.getWithDefault("does.not.exist") must have message "unknown event: does.not.exist"
     }
   }
 
