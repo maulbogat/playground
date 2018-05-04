@@ -3,31 +3,37 @@ package maulbogat.roy.example.element
 import maulbogat.roy.example.element.ElementRegistry.{Earth, Fire, Wind}
 import maulbogat.roy.registry.{CompositeRegistry, ExternalRegistry, Register, Registered}
 
-trait ElementService extends Registered[Element]
+trait ElementService
 
 class EarthService extends ElementService {
-  override val registration: Registration = () => ElementRegistry.earth
 }
 
 class WindService extends ElementService {
-  override val registration: Registration = () => ElementRegistry.wind
 }
 
 class FireService extends ElementService {
-  override val registration: Registration = () => ElementRegistry.fire
 }
 
-sealed trait Element
+sealed trait Element extends Registered[Element]
 
 object ElementRegistry extends ExternalRegistry[Element] {
 
-  case object Earth extends Element
+  case object Earth extends Element {
+    override val registration: Registration = () => ElementRegistry.earth
+  }
+
   val earth: Register[Element] = register(Earth)
 
-  case object Wind extends Element
+  case object Wind extends Element {
+    override val registration: Registration = () => ElementRegistry.wind
+  }
+
   val wind: Register[Element] = register(Wind)
 
-  case object Fire extends Element
+  case object Fire extends Element {
+    override val registration: Registration = () => ElementRegistry.fire
+  }
+
   val fire: Register[Element] = register(Fire)
 
 }
