@@ -15,7 +15,7 @@ abstract class ExternalRegistry[T <: Registered[T]] extends EnumRegistry
 
 trait Registered[T] {
 
-  protected def registration: Registration
+  def registration: Registration
 
   final protected type Registration = () => Register[T]
 

@@ -9,3 +9,11 @@ trait CompositeRegistry[S <: Registered[S], T] extends Registry with GenericRegi
   final override protected[registry] def getAllKeys: List[S] = keyRegistry.getAllValues
 
 }
+
+trait CompositeRegistered[T <: Registered[T]] extends Registered[T] {
+
+  protected def registered: T
+
+  final override def registration: Registration = registered.registration
+
+}
