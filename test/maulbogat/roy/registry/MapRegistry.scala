@@ -1,13 +1,15 @@
 package maulbogat.roy.registry
 
-case class MapRegistry[S, T](map: Map[S, T]) extends Registry {
+trait MapRegistry[S, T] extends Registry {
 
-  override protected[registry] type K = S
+  protected def map: Map[S, T]
 
-  override protected[registry] type V = T
+  final override protected[registry] type K = S
 
-  override protected[registry] def getAllKeys: List[S] = map.keys.toList
+  final override protected[registry] type V = T
 
-  override protected def keyToValue(key: S): T = map(key)
+  final override protected[registry] def getAllKeys: List[S] = map.keys.toList
+
+  final override protected def keyToValue(key: S): T = map(key)
 
 }
