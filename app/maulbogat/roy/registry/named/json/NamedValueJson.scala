@@ -1,4 +1,4 @@
-package maulbogat.roy.registry.json
+package maulbogat.roy.registry.named.json
 
 import maulbogat.roy.registry.named.NamedValue
 import play.api.libs.json.{JsString, Writes}

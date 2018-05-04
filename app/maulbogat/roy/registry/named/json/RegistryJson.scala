@@ -1,4 +1,4 @@
-package maulbogat.roy.registry.json
+package maulbogat.roy.registry.named.json
 
 import maulbogat.roy.registry.Registry
 import maulbogat.roy.registry.named.{NamedRegistry, RegistryDefault}
