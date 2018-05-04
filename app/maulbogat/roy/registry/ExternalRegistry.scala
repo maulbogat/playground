@@ -2,7 +2,7 @@ package maulbogat.roy.registry
 
 import maulbogat.roy.registry.named.{GenericNamedRegistry, NamedValue}
 
-abstract class ExternalRegistry[T] extends EnumRegistry
+abstract class ExternalRegistry[T] extends EnumRegistry // T <: Registered[T] except for Composite
   with GenericRegistry[T] {
 
   final override protected def keyToValue(key: K): V = key.asInstanceOf[Register[T]].element
