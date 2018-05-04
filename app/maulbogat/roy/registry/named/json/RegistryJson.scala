@@ -6,7 +6,7 @@ import play.api.libs.json._
 
 import scala.util.{Failure, Success, Try}
 
-trait RegistryJsonRead {
+trait RegistryJsonReads {
   _: Registry /* with NamedRegistry */ with RegistryDefault =>
 
   final val namedReads: Reads[V] = {
@@ -19,7 +19,7 @@ trait RegistryJsonRead {
 
 }
 
-trait RegistryJsonFormat extends RegistryJsonRead {
+trait RegistryJsonFormat extends RegistryJsonReads {
   _: Registry with NamedRegistry with RegistryDefault =>
 
   final val namedFormat: Format[V] = Format.apply(namedReads, NamedValueJson.writes)
