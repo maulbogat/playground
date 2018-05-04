@@ -1,6 +1,6 @@
 package maulbogat.roy.registry.named
 
-import maulbogat.roy.registry.{GenericRegistry, Registry}
+import maulbogat.roy.registry.{GenericRegistry, Registered, Registry}
 
 private[registry] trait NamedRegistry {
   _: Registry =>
@@ -30,7 +30,7 @@ trait TypeNamedRegistry extends NamedRegistry {
 
 }
 
-trait GenericNamedRegistry[T <: NamedValue] extends NamedRegistry {
+trait GenericNamedRegistry[T <: NamedValue with Registered[_]] extends NamedRegistry {
   _: Registry with GenericRegistry[T] =>
 
   final override protected[registry] def valueToName(value: V): String = value.name
