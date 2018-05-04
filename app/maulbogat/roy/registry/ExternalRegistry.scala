@@ -13,7 +13,7 @@ abstract class ExternalRegistry[T <: Registered[T]] extends EnumRegistry
 
 }
 
-trait Registered[T] {
+trait Registered[T <: Registered[T]] {
 
   def registration: Registration
 
@@ -21,7 +21,7 @@ trait Registered[T] {
 
 }
 
-trait Register[T] {
+trait Register[T <: Registered[T]] {
 
   def element: T
 
