@@ -1,6 +1,6 @@
 package maulbogat.roy.registry
 
-trait CompositeRegistry[S <: Registered[S], T] extends Registry with GenericRegistry[T] {
+trait CompositeRegistry[S <: Registered[S], T <: Registered[S]] extends Registry with GenericRegistry[T] {
 
   protected def keyRegistry: ExternalRegistry[S]
 
