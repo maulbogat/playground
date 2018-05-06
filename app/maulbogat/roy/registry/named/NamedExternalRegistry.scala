@@ -18,7 +18,7 @@ trait NamedRegistered[T] extends Registered[T] with NamedValue {
 
   override def registration: NamedRegistration[T]
 
-  override def name: String = registration().name
+  final override def name: String = registration().name
 
 }
 
