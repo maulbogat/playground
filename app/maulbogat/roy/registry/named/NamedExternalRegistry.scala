@@ -28,8 +28,4 @@ object NamedRegistered {
 
 }
 
-trait NamedRegister[T] extends Register[T] {
-
-  def name: String
-
-}
+trait NamedRegister[T] extends Register[T] with NamedValue
