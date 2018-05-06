@@ -1,5 +1,7 @@
 package maulbogat.roy.registry
 
+import maulbogat.roy.registry.Registered.Registration
+
 abstract class ExternalRegistry[T] extends EnumRegistry
   with GenericRegistry[T] {
 
@@ -13,9 +15,13 @@ abstract class ExternalRegistry[T] extends EnumRegistry
 
 trait Registered[T] {
 
-  def registration: Registration
+  def registration: Registration[T]
 
-  protected type Registration = () => Register[T]
+}
+
+object Registered {
+
+  type Registration[T] = () => Register[T]
 
 }
 

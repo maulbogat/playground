@@ -1,5 +1,6 @@
 package maulbogat.roy.registry.named
 
+import maulbogat.roy.registry.named.NamedRegistered.NamedRegistration
 import maulbogat.roy.registry.{ExternalRegistry, Register, Registered}
 
 abstract class NamedExternalRegistry[T <: NamedValue] extends ExternalRegistry[T]
@@ -12,20 +13,23 @@ abstract class NamedExternalRegistry[T <: NamedValue] extends ExternalRegistry[T
 
 }
 
+// quick fix - subject to future refactor
 trait NamedRegistered[T] extends Registered[T] with NamedValue {
 
-  def registration: NamedRegistration
+  override def registration: NamedRegistration[T]
 
-  def name: String = registration().name
+  override def name: String = registration().name
 
-  protected type NamedRegistration = () => NamedRegister[T]
+}
+
+object NamedRegistered {
+
+  type NamedRegistration[T] = () => NamedRegister[T]
 
 }
 
 trait NamedRegister[T] extends Register[T] {
 
   def name: String
-
-  def element: T
 
 }
