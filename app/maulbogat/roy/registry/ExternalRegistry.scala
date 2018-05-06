@@ -1,15 +1,13 @@
 package maulbogat.roy.registry
 
-import maulbogat.roy.registry.named.{GenericNamedRegistry, NamedValue}
-
 abstract class ExternalRegistry[T] extends EnumRegistry
   with GenericRegistry[T] {
 
   final override protected def keyToValue(key: K): V = key.asInstanceOf[Register[T]].element
 
-  final protected def register(element: T): Register[T] = ValWrapper(element)
+  final protected def register(element: T): Register[T] = new ValWrapper(element)
 
-  private case class ValWrapper(element: T) extends Val with Register[T]
+  protected class ValWrapper(val element: T) extends Val with Register[T]
 
 }
 
@@ -17,7 +15,7 @@ trait Registered[T] {
 
   def registration: Registration
 
-  final protected type Registration = () => Register[T]
+  protected type Registration = () => Register[T]
 
 }
 
@@ -26,6 +24,3 @@ trait Register[T] {
   def element: T
 
 }
-
-abstract class NamedExternalRegistry[T <: NamedValue] extends ExternalRegistry[T]
-  with GenericNamedRegistry[T]

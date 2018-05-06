@@ -1,7 +1,7 @@
 package maulbogat.roy.example.action
 
 import maulbogat.roy.registry._
-import maulbogat.roy.registry.named.ToLowerStringNamedValue
+import maulbogat.roy.registry.named.{NamedExternalRegistry, ToLowerStringNamedValue}
 
 sealed trait Action extends Registered[Action] with ToLowerStringNamedValue
 
