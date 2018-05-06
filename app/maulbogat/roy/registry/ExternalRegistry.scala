@@ -2,7 +2,7 @@ package maulbogat.roy.registry
 
 import maulbogat.roy.registry.named.{GenericNamedRegistry, NamedValue}
 
-abstract class ExternalRegistry[T <: Registered[T]] extends EnumRegistry
+abstract class ExternalRegistry[T] extends EnumRegistry
   with GenericRegistry[T] {
 
   final override protected def keyToValue(key: K): V = key.asInstanceOf[Register[T]].element
@@ -13,7 +13,7 @@ abstract class ExternalRegistry[T <: Registered[T]] extends EnumRegistry
 
 }
 
-trait Registered[T <: Registered[T]] {
+trait Registered[T] {
 
   def registration: Registration
 
@@ -21,11 +21,11 @@ trait Registered[T <: Registered[T]] {
 
 }
 
-trait Register[T <: Registered[T]] {
+trait Register[T] {
 
   def element: T
 
 }
 
-abstract class NamedExternalRegistry[T <: NamedValue with Registered[T]] extends ExternalRegistry[T]
+abstract class NamedExternalRegistry[T <: NamedValue] extends ExternalRegistry[T]
   with GenericNamedRegistry[T]
