@@ -7,23 +7,23 @@ import maulbogat.roy.registry.named.{NamedExternalRegistry, ToLowerStringNamedVa
 sealed trait Action extends Registered[Action] with ToLowerStringNamedValue
 
 case object Eat extends Action {
-  override val registration: Registration[Action] = () => ActionRegistry.eat
+  override val registration: Registration[Action] = ActionRegistry.eat
 }
 
 case object Pray extends Action {
-  override val registration: Registration[Action] = () => ActionRegistry.pray
+  override val registration: Registration[Action] = ActionRegistry.pray
 }
 
 case object Love extends Action {
-  override val registration: Registration[Action] = () => ActionRegistry.love
+  override val registration: Registration[Action] = ActionRegistry.love
 }
 
 object ActionRegistry extends NamedExternalRegistry[Action] {
 
-  val eat: Register[Action] = register(Eat)
+  val eat: Registration[Action] = register(Eat)
 
-  val pray: Register[Action] = register(Pray)
+  val pray: Registration[Action] = register(Pray)
 
-  val love: Register[Action] = register(Love)
+  val love: Registration[Action] = register(Love)
 
 }

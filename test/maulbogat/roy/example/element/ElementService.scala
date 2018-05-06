@@ -7,15 +7,15 @@ import maulbogat.roy.registry._
 trait ElementService extends Registered[Element]
 
 class EarthService extends ElementService {
-  override val registration: Registration[Element] = () => ElementRegistry.earth
+  override val registration: Registration[Element] = ElementRegistry.earth
 }
 
 class WindService extends ElementService {
-  override val registration: Registration[Element] = () => ElementRegistry.wind
+  override val registration: Registration[Element] = ElementRegistry.wind
 }
 
 class FireService extends ElementService {
-  override val registration: Registration[Element] = () => ElementRegistry.fire
+  override val registration: Registration[Element] = ElementRegistry.fire
 }
 
 sealed trait Element
@@ -23,13 +23,13 @@ sealed trait Element
 object ElementRegistry extends ExternalRegistry[Element] {
 
   case object Earth extends Element
-  val earth: Register[Element] = register(Earth)
+  val earth: Registration[Element] = register(Earth)
 
   case object Wind extends Element
-  val wind: Register[Element] = register(Wind)
+  val wind: Registration[Element] = register(Wind)
 
   case object Fire extends Element
-  val fire: Register[Element] = register(Fire)
+  val fire: Registration[Element] = register(Fire)
 
 }
 

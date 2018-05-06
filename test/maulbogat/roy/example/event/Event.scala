@@ -11,13 +11,13 @@ sealed trait UserEvent extends Event
 case object UserCreatedEvent extends UserEvent {
   override val name: String = "user.created"
 
-  override val registration: Registration[Event] = () => EventRegistry.userCreated
+  override val registration: Registration[Event] = EventRegistry.userCreated
 }
 
 case object UserDeletedEvent extends UserEvent {
   override val name: String = "user.deleted"
 
-  override val registration: Registration[Event] = () => EventRegistry.userDeleted
+  override val registration: Registration[Event] = EventRegistry.userDeleted
 }
 
 sealed trait ProductEvent extends Event
@@ -25,11 +25,11 @@ sealed trait ProductEvent extends Event
 case object ProductCreatedEvent extends ProductEvent {
   override val name: String = "product.created"
 
-  override val registration: Registration[Event] = () => EventRegistry.productCreated
+  override val registration: Registration[Event] = EventRegistry.productCreated
 }
 
 case object ProductDeletedEvent extends ProductEvent {
   override val name: String = "product.deleted"
 
-  override val registration: Registration[Event] = () => EventRegistry.productDeleted
+  override val registration: Registration[Event] = EventRegistry.productDeleted
 }
