@@ -1,6 +1,6 @@
 package maulbogat.roy.example.action
 
-import maulbogat.roy.registry.{Register, Registered}
+import maulbogat.roy.registry.Registered
 import maulbogat.roy.registry.Registered.Registration
 import maulbogat.roy.registry.named.{NamedExternalRegistry, ToLowerStringNamedValue}
 
