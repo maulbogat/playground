@@ -8,12 +8,12 @@ trait NamedValue {
 
 trait ToStringNamedValue extends NamedValue {
 
-  override lazy val name: String = toString
+  override def name: String = toString
 
 }
 
 trait ToLowerStringNamedValue extends NamedValue {
 
-  override lazy val name: String = toString.toLowerCase
+  override def name: String = toString.toLowerCase
 
 }
