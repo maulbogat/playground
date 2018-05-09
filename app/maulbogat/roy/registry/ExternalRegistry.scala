@@ -11,6 +11,8 @@ abstract class ExternalRegistry[T] extends EnumRegistry
 
   final protected def register(element: T): Register[T] = new ValWrapper(element)
 
+  final protected def registerAndGet(element: T): T = register(element).element
+
   protected class ValWrapper(val element: T) extends Val with Register[T]
 
 }
