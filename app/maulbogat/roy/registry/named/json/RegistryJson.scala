@@ -23,6 +23,6 @@ trait RegistryJson {
 
   final val namedFormat: Format[V] = Format.apply(namedReads, NamedValueJson.writes)
 
-  final val namedFormatIgnoreCase: Reads[V] = Format.apply(namedReadsIgnoreCase, NamedValueJson.writes)
+  final val namedFormatIgnoreCase: Format[V] = Format.apply(namedReadsIgnoreCase, NamedValueJson.writes)
 
 }
