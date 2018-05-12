@@ -30,13 +30,13 @@ trait TypeNamedRegistry extends NamedRegistry {
 
   final override protected[registry] type V = NamedRegistryValue
 
-  final override protected[registry] def valueToName(value: V): String = value.name
+  override protected[registry] def valueToName(value: V): String = value.name
 
 }
 
 trait GenericNamedRegistry[T <: NamedValue] extends NamedRegistry {
   _: Registry with GenericRegistry[T] =>
 
-  final override protected[registry] def valueToName(value: V): String = value.name
+  override protected[registry] def valueToName(value: V): String = value.name
 
 }
