@@ -1,6 +1,7 @@
 package maulbogat.roy.registry
 
 import maulbogat.roy.registry.Registered.Registration
+import maulbogat.roy.registry.named.NamedRegister
 
 import scala.language.implicitConversions
 
@@ -9,11 +10,15 @@ abstract class ExternalRegistry[T] extends EnumRegistry
 
   final override protected def keyToValue(key: K): V = key.asInstanceOf[Register[T]].element
 
-  final protected def register(element: T): Register[T] = new ValWrapper(element)
-
   final protected def registerAndGet(element: T): T = register(element).element
 
+  final protected def register(element: T): Register[T] = new ValWrapper(element)
+
   protected class ValWrapper(val element: T) extends Val with Register[T]
+
+  protected def registerWithName(name: String, element: T): NamedRegister[T] = NamedValWrapper(name, element)
+
+  protected case class NamedValWrapper(name: String, override val element: T) extends ValWrapper(element) with NamedRegister[T]
 
 }
 

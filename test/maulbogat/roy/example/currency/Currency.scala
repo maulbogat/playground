@@ -6,7 +6,7 @@ import maulbogat.roy.registry.named.{DefaultRegistryError, ToStringNamedValue}
 object Currency extends NamedInternalRegistry
   with DefaultRegistryError {
 
-  override protected type NamedRegistryValue = Currency
+  override type NamedRegistryValue = Currency
 
   val GBP = Currency("£")
   val USD = Currency("$")

@@ -11,15 +11,15 @@ private[registry] trait NamedRegistry {
 
   final def getByName(name: Option[String]): Option[V] = name.flatMap(getByName)
 
+  final def getByName(name: String): Option[V] = getAllValues.find(valueToName(_) == name)
+
   final def getByNameIgnoreCase(name: Option[String]): Option[V] = name.flatMap(getByNameIgnoreCase)
+
+  final def getByNameIgnoreCase(name: String): Option[V] = getAllValues.find(valueToName(_).equalsIgnoreCase(name))
 
   final def getAllNames: List[String] = getAllValues.map(valueToName)
 
   final def nameExists(name: String): Boolean = getByName(name).isDefined
-
-  final def getByName(name: String): Option[V] = getAllValues.find(valueToName(_) == name)
-
-  final def getByNameIgnoreCase(name: String): Option[V] = getAllValues.find(valueToName(_).equalsIgnoreCase(name))
 
 }
 

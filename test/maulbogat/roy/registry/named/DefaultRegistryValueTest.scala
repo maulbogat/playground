@@ -8,7 +8,7 @@ class DefaultRegistryValueTest extends FunSpec with MustMatchers {
   object TestRegistry extends NamedInternalRegistry
     with DefaultRegistryValue {
 
-    protected type NamedRegistryValue = TestRegistryValue
+    type NamedRegistryValue = TestRegistryValue
 
     class TestRegistryValue extends Val with ToStringNamedValue
 

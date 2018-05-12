@@ -4,7 +4,7 @@ import maulbogat.roy.registry.named.{NamedValue, TypeNamedRegistry}
 
 abstract class InternalRegistry extends EnumRegistry {
 
-  protected type RegistryValue <: Value
+  type RegistryValue <: Value
 
   override protected[registry] type V = RegistryValue
 
@@ -15,8 +15,8 @@ abstract class InternalRegistry extends EnumRegistry {
 abstract class NamedInternalRegistry extends InternalRegistry
   with TypeNamedRegistry {
 
-  override protected type NamedRegistryValue <: Value with NamedValue
+  override type NamedRegistryValue <: Value with NamedValue
 
-  final override protected type RegistryValue = NamedRegistryValue
+  final override type RegistryValue = NamedRegistryValue
 
 }
