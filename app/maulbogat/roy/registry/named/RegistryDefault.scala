@@ -27,6 +27,8 @@ trait DefaultRegistryValue extends RegistryDefault {
 
   protected def default: V
 
+  def getWithDefault(name: Option[String]): V = name.map(getWithDefault).getOrElse(default)
+
   final override protected def getDefault(name: String): V = default
 
 }
